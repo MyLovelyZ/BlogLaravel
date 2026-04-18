@@ -7,10 +7,10 @@
         </button>
         <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
-                <x-nav-link href="/" :current="request()->is('/')">Home</x-nav-link>
-                <x-nav-link href="/posts" :current="request()->is('posts')">Blog</x-nav-link>
-                <x-nav-link href="/about" :current="request()->is('about')">About</x-nav-link>
-                <x-nav-link href="/contact" :current="request()->is('contact')">Contact</x-nav-link>
+                <x-nave-link href="/" :current="request()->is('/')">Home</x-nave-link>
+                <x-nave-link href="/posts" :current="request()->is('posts')">Blog</x-nave-link>
+                <x-nave-link href="/about" :current="request()->is('about')">About</x-nave-link>
+                <x-nave-link href="/contact" :current="request()->is('contact')">Contact</x-nave-link>
             </div>
         </div>
         </div>
@@ -20,21 +20,25 @@
             <div class="relative ml-3">
 
                 <!-- Avatar button -->
+                @if (Auth::check())  
                 <button
                     type="button"
                     class="cursor-pointer flex items-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
                     @click="open = !open"
                     aria-expanded="false"
-                    aria-haspopup="true"
-                >
-                    <span class="sr-only">Open user menu</span>
-
+                    aria-haspopup="true">                    
                     <img
                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                         alt="User avatar"
                         class="h-8 w-8 rounded-full hover:size-9 transition-all duration-200"
                     >
                 </button>
+                @else
+                <a href="/login" class="text-white">Login</a>
+                <span class="text-white px-3">|</span>
+                <a href="/register" class="text-white">Register</a>
+                @endif
+                    <span class="sr-only">Open user menu</span>
 
                 <!-- Dropdown -->
                 <div
@@ -50,8 +54,11 @@
                     class="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 z-50"
                     role="menu"
                 >
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Your profile</a>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+                    <a href="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Your profile</a>
+                    <a href="" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+                    <form action="" method="POST">
+                        <button>Sign Out</button>
+                    </form>
                     <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</a>
                 </div>
 
@@ -77,10 +84,10 @@
     <div id="mobile-menu" class="block" x-show="mobileMenuOpen">
     <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-        <x-nav-link class="block" href="/" :current="request()->is('/')">Home</x-nav-link>
-        <x-nav-link class="block" href="/posts" :current="request()->is('posts')">Blog</x-nav-link>
-        <x-nav-link class="block" href="/about" :current="request()->is('about')">About</x-nav-link>
-        <x-nav-link class="block" href="/contact" :current="request()->is('contact')">Contact</x-nav-link>
+        <x-nave-link class="block" href="/" :current="request()->is('/')">Home</x-nave-link>
+        <x-nave-link class="block" href="/posts" :current="request()->is('posts')">Blog</x-nave-link>
+        <x-nave-link class="block" href="/about" :current="request()->is('about')">About</x-nave-link>
+        <x-nave-link class="block" href="/contact" :current="request()->is('contact')">Contact</x-nave-link>
     </div>
     <div class="border-t border-white/10 pt-4 pb-3">
         <div class="flex items-center px-5">

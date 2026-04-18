@@ -6,12 +6,8 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xs sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    Selamat Datang {{ Auth::user()->username }} ! atau {{ Auth::user()->name }}
-                </div>
-            </div>
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 overflow-hidden shadow-xs sm:rounded-lg bg-gray-50 p-3 sm:p-5">
+            <x-posts.table />
         </div>
     </div>
 </x-app-layout>
