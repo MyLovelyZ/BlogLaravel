@@ -7,7 +7,8 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 overflow-hidden shadow-xs sm:rounded-lg bg-gray-50 p-3 sm:p-5">
-            <x-posts.table />
+            <x-posts.table :posts="$posts" />
         </div>
     </div>
+    <
 </x-app-layout>
