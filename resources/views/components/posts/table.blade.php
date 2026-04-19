@@ -77,7 +77,9 @@
             </table>
         </div>
     </div>
-    <div class="pt-5">
-        {{ $posts->links() }}
-    </div>
+    @if ($posts->hasPages())
+        <div class="pt-5">
+            {{ $posts->links() }}
+        </div>
+    @endif
 </section>
