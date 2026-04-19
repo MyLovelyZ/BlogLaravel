@@ -12,7 +12,7 @@ class PostDashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard', ['posts' => Post::first()->paginate(10)]);
+        return view('dashboard', ['posts' => Post::first()->paginate(20)]);
     }
 
     /**

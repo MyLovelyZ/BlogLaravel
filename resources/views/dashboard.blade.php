@@ -10,5 +10,5 @@
             <x-posts.table :posts="$posts" />
         </div>
     </div>
-    <
+    
 </x-app-layout>
